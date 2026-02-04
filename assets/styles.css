@@ -1,0 +1,92 @@
+:root{
+  --bg: #ffffff;
+  --card: #ffffff;
+  --muted: #6b7280; /* gray-500 */
+  --text: #111827; /* gray-900 */
+  --accent1: #111827;
+  --accent2: #374151;
+  --glass: rgba(0,0,0,0.04);
+  --radius:10px;
+  --accent-contrast: #ffffff;
+}
+
+/* (Dark mode removed) */
+
+*{box-sizing:border-box}
+body{
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin:0;
+  color: var(--text);
+  background: var(--bg);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:1100px;margin:0 auto;padding:18px}
+
+/* Remove underlines globally (user requested) */
+a{ text-decoration: none; }
+
+/* Header / Nav bar: classic light Jekyll style */
+.site-header{
+  background: var(--card);
+  border-bottom: 1px solid #e5e7eb; /* gray-200 */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* header overrides (single theme) */
+.site-header{
+  background: var(--card);
+}
+.header-inner{display:flex;align-items:center;padding:12px 0}
+.brand{font-weight:800;color:var(--text) !important;text-decoration:none !important;font-size:1.8rem;display:block}
+.nav{display:flex;align-items:center;gap:12px;margin-left:auto}
+.nav a{color:var(--text) !important;padding:6px 8px;border-radius:6px;text-decoration:none !important}
+.nav a:hover{color:var(--text);background:#f3f4f6}
+.nav a.active{color:var(--text);font-weight:600}
+
+/* Layout */
+.profile-wrap{display:grid;grid-template-columns:320px 1fr;gap:36px;align-items:start;margin-top:28px}
+.panel{background:var(--card);border-radius:var(--radius);padding:20px;border:1px solid #e6edf3}
+.avatar{width:100%;height:auto;border-radius:8px;display:block}
+.name{font-size:1.9rem;margin:0 0 6px;color:var(--text)}
+.role{color:var(--muted);margin:0 0 12px}
+.bio{color:#374151}
+.links{display:flex;gap:10px;margin-top:14px}
+.pill{padding:7px 12px;border-radius:999px;background:#111827;color:#fff;text-decoration:none;font-weight:600}
+
+.section{margin-top:20px}
+.section h3{margin:0 0 10px;color:var(--text)}
+.skills{display:flex;flex-wrap:wrap;gap:8px}
+.skill{background:#f3f4f6;padding:6px 10px;border-radius:8px;color:var(--muted);font-weight:600}
+
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.project{background:#ffffff;padding:12px;border-radius:8px;border:1px solid #eef2f7}
+
+.site-footer{padding:18px 0;color:var(--muted);font-size:0.9rem;text-align:center;margin-top:36px}
+
+@media (max-width:980px){
+  .profile-wrap{grid-template-columns:1fr;gap:20px}
+  .projects{grid-template-columns:1fr}
+  .nav{flex-direction:row;gap:10px}
+}
+
+/* Styles for the new header format */
+.wrapper{max-width:1100px;margin:0 auto;padding:12px 18px;display:flex;align-items:center}
+.site-title{font-weight:800;font-size:1.8rem;color:var(--text);text-decoration:none}
+.site-nav{margin-left:auto;display:flex;align-items:center}
+.nav-trigger{display:none}
+.site-nav label{display:none}
+.trigger{display:flex;gap:12px}
+.page-link{color:var(--text);text-decoration:none;padding:6px 10px;border-radius:6px}
+.page-link:hover{background:#f3f4f6}
+
+/* Removed dark-mode and theme-toggle styles */
+
+
+@media (max-width:720px){
+  .site-nav label{display:inline-block;margin-left:10px}
+  .trigger{display:none}
+  .nav-trigger:checked + label + .trigger{display:flex;flex-direction:column;position:absolute;right:18px;top:60px;background:#fff;padding:8px;border:1px solid #e5e7eb;border-radius:8px}
+}

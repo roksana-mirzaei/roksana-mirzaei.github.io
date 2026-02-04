@@ -1,0 +1,6 @@
+/* Forwarding file so theme (minima) references to /assets/main.css
+   use the project's canonical styles in assets/styles.css. */
+@import url("/assets/styles.css");
+
+/* If the server doesn't support @import before other rules, the file
+   also acts as a fallback stub. */

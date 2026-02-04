@@ -1,0 +1,35 @@
+/* Mentorship section custom styles */
+.mentorship-section {
+  background-color: var(--bg-primary);
+  border-radius: 8px;
+  margin: 2rem 0;
+  padding: 1.5rem 1rem;
+  border: 1.5px solid var(--border-color);
+}
+.mentorship-title {
+  color: var(--accent-color);
+}
+.mentorship-divider {
+  border-top: 2px solid var(--accent-color);
+  margin-bottom: 1rem;
+}
+.mentorship-text {
+  color: var(--text-secondary);
+}
+
+/* Light blue for mentorship section in dark mode */
+[data-theme="dark"] .mentorship-section,
+[data-theme="dark"] .mentorship-title,
+[data-theme="dark"] .mentorship-divider {
+  /* Use a light blue shade for background, title, and divider */
+  background-color: #232f3e;
+}
+[data-theme="dark"] .mentorship-title {
+  color: #7ecbff !important;
+}
+[data-theme="dark"] .mentorship-divider {
+  border-top: 2px solid #7ecbff !important;
+}
+[data-theme="dark"] .mentorship-text {
+  color: #b3e6ff;
+}
