@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "TBC"
+date:   2026-02-04 12:00:00 +0000
+categories: placeholder
+excerpt: "This is a placeholder post. Content coming soon."
+---
+
+## Coming Soon
+
+This page is currently under development. Content will be added soon.
+
+Stay tuned for updates!

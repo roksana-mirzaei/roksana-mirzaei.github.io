@@ -13,8 +13,6 @@ permalink: /blog/
         <div class="blog-post-item">
           {% if post.image %}
             <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="blog-post-image">
-          {% else %}
-            <img src="/assets/images/test.png" alt="{{ post.title }}" class="blog-post-image">
           {% endif %}
           <div class="blog-post-content">
             <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
