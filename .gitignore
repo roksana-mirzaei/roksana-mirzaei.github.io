@@ -4,8 +4,3 @@ _site
 .jekyll-metadata
 vendor
 Gemfile.lock
-
-# Ignore VirtualTryOn post and images
-_posts/2026-01-23-VirtualTryOn.markdown
-assets/images/VirtualTryOn/
-assets/images/test.png
