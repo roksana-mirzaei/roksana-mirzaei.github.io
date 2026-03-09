@@ -1,7 +1,6 @@
-<header class="site-header" role="banner">
-
-  <div class="wrapper">
-    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">Roksana Mirzaei</a>
+<header class="site-header" role="banner" style="width: 100%; background: var(--card);">
+  <div class="wrapper" style="width: 100%; max-width: 800px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; min-height: 64px;">
+    <!-- Removed site-title from header as requested -->
     <nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger">
         <label for="nav-trigger">
@@ -11,9 +10,11 @@
             </svg>
           </span>
         </label>
-
-        <div class="trigger">
+        <div class="trigger" style="font-size: 1.15em;">
           <a class="page-link" href="{{ '/' | relative_url }}">About me</a>
+          <a class="page-link" href="{{ '/' | relative_url }}#publications">Publications</a>
+          <a class="page-link" href="{{ '/' | relative_url }}#mentorship">Mentorship</a>
+          <a class="page-link" href="{{ '/' | relative_url }}#latest">Latest</a>
           <a class="page-link" href="{{ '/blog/' | relative_url }}">Blog</a>
           <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
             <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

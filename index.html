@@ -12,6 +12,24 @@ layout: null
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Roksana Mirzaei</title>
+  <style>
+    :root {
+      --mentorship-bg: #e0edff;
+      --mentorship-border: #b6d2fa;
+      --mentorship-title: #1743a7;
+      --mentorship-text: #2563eb;
+      --mentorship-link: #1743a7;
+      --mentorship-title-bg: #c7e0ff;
+    }
+    [data-theme="dark"] {
+      --mentorship-bg: #22304a;
+      --mentorship-border: #3a4e6e;
+      --mentorship-title: #b6d2fa;
+      --mentorship-text: #e0edff;
+      --mentorship-link: #b6d2fa;
+      --mentorship-title-bg: #2a3a54;
+    }
+  </style>
   <link rel="stylesheet" href="/assets/main.css">
   <link rel="stylesheet" href="/assets/intro.css">
   <link rel="stylesheet" href="/assets/theme.css">
@@ -21,78 +39,55 @@ layout: null
   {% include header.html %}
 
   <main class="page-content" aria-label="Content">
-    <div class="intro-wrapper">
-      <div class="intro-grid">
-        <div class="intro-left">
-          <div class="intro-image">
-            <!-- Your actual photo -->
-            <img src="/assets/images/Roksana.jpg" alt="Roksana Mirzaei">
-          </div>
-          <div class="intro-meta">
-            <div class="intro-meta-item">
-              <span class="intro-meta-label">Job</span>
-              <span class="intro-meta-value">Machine Learning Engineer</span>
-            </div>
-            <div class="intro-meta-item">
-              <span class="intro-meta-label">Company</span>
-              <span class="intro-meta-value">Sainsburys</span>
-            </div>
-            <div class="intro-meta-item">
-              <span class="intro-meta-label">Country</span>
-              <span class="intro-meta-value">United Kingdom</span>
+    <div style="background: var(--bg-primary); min-height: 100vh;">
+      <div style="max-width: 850px; margin: 0 auto; background: var(--bg-primary); display: flex; flex-direction: column; gap: 2.5rem; box-shadow: none; border-radius: 18px; color: var(--text-primary);">
+        <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: flex-start;">
+          <div style="flex: 0 0 180px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+            <div style="width: 190px; height: 190px; border-radius: 50%; overflow: hidden; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center;">
+              <img src="/assets/images/Roksana.jpg" alt="Roksana Mirzaei" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
           </div>
-        </div>
-
-        <div class="intro-right">
-            <p class="intro-summary">
-            I'm a Machine Learning Engineer at <a href="https://www.sainsburys.co.uk/" target="_blank" rel="noopener noreferrer">Sainsburys</a>. I hold an MSc in Advanced Computer Science from the University of Northumbria at Newcastle, where I researched on Explainable AI frameworks.
-            Currently, I work with the <a href="https://www.nectar360.co.uk/news/nectar360-pollen/" target="_blank" rel="noopener noreferrer">Nectar360 Pollen Measurement </a>, developing ML-driven data pipelines and multi-touch attribution models. I'm an active researcher and continuous learner, regularly exploring and building ideas.
-            </p>
-
-          <div class="social-links">
-            <a href="mailto:roksanamirzaei1999@gmail.com" class="social-link" title="Email">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path fill="black" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-              </svg>
-              <span>roksanamirzaei1999@gmail.com</span>
-            </a>
-            <a href="https://github.com/roksana-mirzaei" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path fill="black" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 . 405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.001 12.001 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-              <span>GitHub</span>
-            </a>
-            <a href="https://linkedin.com/in/roksana-mirzaei" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path fill="black" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
-              </svg>
-              <span>LinkedIn</span>
-            </a>
-            <a href="https://1drv.ms/b/c/b87e2a29c11b4b09/IQAS1MB8ZdRNSpwF3Q78OgMxAR7VgVYzRy8v3mZqQQPXKw4?e=AVqYan" class="social-link" title="CV">
-              <svg width="24" height="24" viewBox="0 0 24 24">
-                <path fill="black" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="12" y1="13" x2="8" y2="13"/>
-                <line x1="12" y1="17" x2="8" y2="17"/>
-              </svg>
-              <span>CV</span>
-            </a>
+          <div style="flex: 1 1 0; min-width: 220px; margin-top: 3.8em;">
+            <h1 style="font-size: 2.1em; font-weight: 800; margin: 0 0 0.3em 0; color: var(--text-primary);">Roksana Mirzaei</h1>
+            <div style="margin-bottom: 1.2em; display: flex; flex-wrap: wrap; gap: 1.1em; align-items: center;">
+              <a href="mailto:roksanamirzaei1999@gmail.com" class="social-link" title="Email" style="display: flex; align-items: center; gap: 0.4em; color: var(--text-secondary); text-decoration: none; font-size: 1em;">
+                <svg width="22" height="22" viewBox="0 0 24 24"><path fill="black" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <span>roksanamirzaei1999@gmail.com</span>
+              </a>
+              <a href="https://github.com/roksana-mirzaei" class="social-link" title="GitHub" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.4em; color: var(--text-secondary); text-decoration: none; font-size: 1em;">
+                <svg width="22" height="22" viewBox="0 0 24 24"><path fill="black" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.001 12.001 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://linkedin.com/in/roksana-mirzaei" class="social-link" title="LinkedIn" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 0.4em; color: var(--text-secondary); text-decoration: none; font-size: 1em;">
+                <svg width="22" height="22" viewBox="0 0 24 24"><path fill="black" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://1drv.ms/b/c/b87e2a29c11b4b09/IQAS1MB8ZdRNSpwF3Q78OgMxAR7VgVYzRy8v3mZqQQPXKw4?e=AVqYan" class="social-link" title="CV" style="display: flex; align-items: center; gap: 0.4em; color: var(--text-secondary); text-decoration: none; font-size: 1em;">
+                <svg width="22" height="22" viewBox="0 0 24 24"><path fill="black" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="13" x2="8" y2="13"/><line x1="12" y1="17" x2="8" y2="17"/></svg>
+                <span>CV</span>
+              </a>
+            </div>
           </div>
-
-          <div class="research-section">
-            <h3 class="research-title">Research/Area of Interest</h3>
-            <hr class="research-divider">
-            <p class="research-content">
+          <div style="flex: 0 0 100%; display: flex; align-items: center; justify-content: center;">
+            <p style="font-size: 1.13em; color: var(--text-primary); line-height: 1.7;">
+              I'm a Machine Learning Engineer at <a href="https://www.sainsburys.co.uk/" target="_blank" rel="noopener noreferrer">Sainsburys</a>. I hold an MSc in Advanced Computer Science from the University of Northumbria at Newcastle, where I researched on Explainable AI frameworks.<br>
+              Currently, I work with the <a href="https://www.nectar360.co.uk/news/nectar360-pollen/" target="_blank" rel="noopener noreferrer">Nectar360 Pollen Measurement</a>, developing ML-driven data pipelines and multi-touch attribution models. I'm an active researcher and continuous learner, regularly exploring and building ideas.
+            </p>       
+          </div>
+        <!-- Main content sections below -->
+        <div style="width: 100%; display: flex; flex-direction: column; gap: 1.2rem;">
+          <div id="research" class="research-section publications-section">
+            <h3 class="research-title publications-title" style="font-size: 1.25em; margin-bottom: 0.3em; color: var(--text-primary);">Research/Area of Interest</h3>
+            <hr class="research-divider publications-divider" style="border: none; border-top: 1px solid #e5e7eb; margin: 0.2em 0 0.7em 0;">
+            <p class="research-content publication-item-simple" style="color: var(--text-secondary); font-size: 1.07em;">
               Explainable AI, Generative AI, Diffusion Models, Large Language Models, Agentic AI, Autonomous Systems, Agentic AI safety and Evals
             </p>
           </div>
-
-          <div class="publications-section">
-            <h3 class="publications-title">Publications</h3>
-            <hr class="publications-divider">
+          <div id="publications" class="publications-section">
+            <h3 class="publications-title" style="font-size: 1.25em; margin-bottom: 0.3em; color: var(--text-primary);">Publications</h3>
+            <hr class="publications-divider" style="border: none; border-top: 1px solid #e5e7eb; margin: 0.2em 0 0.7em 0;">
             <div class="publications-list">
-              <p class="publication-item-simple">
+              <p class="publication-item-simple" style="color: var(--text-secondary); font-size: 1.07em;">
                 <strong>Explainable AI Evaluation: A Top-Down Approach for Selecting Optimal Explanations for Black Box Models</strong><br>
                 SeyedehRoksana Mirzaei, Hua Mao, Raid Rafi Omar Al-Nima, Wai Lok Woo<br>
                 <em>Information</em> 2024, 15(1), 4 — 
@@ -100,51 +95,43 @@ layout: null
               </p>
             </div>
           </div>
-
-          <div class="mentorship-section">
-            <h3 class="mentorship-title"><strong>Mentorship</strong></h3>
-            <hr class="mentorship-divider">
-            <div class="mentorship-content">
-              <p class="mentorship-text">
-                I am grateful to be mentored by <a href="https://www.linkedin.com/in/nayyab/" target="_blank" rel="noopener noreferrer">Nayyab Naqvi, PhD MBCS (Principal Technologist for AI Enablement in the UK Public Sector)</a>.
-              </p>
-                I am an active mentor with the <a href="https://womeninhpc.org/" target="_blank" rel="noopener noreferrer">Women in High Performance Computing (WHPC)</a> platform, supporting and empowering the next generation of talent in the HPC community.
+          <div id="mentorship" class="mentorship-section" style="background: var(--mentorship-bg, #e0edff); border-radius: 9px; padding: 1.5em 1.5em 1.2em 1.5em; box-shadow: 0 2px 12px rgba(37,99,235,0.06); border: 1.5px solid var(--mentorship-border, #b6d2fa); color: var(--mentorship-title, #1743a7);">
+            <h3 class="mentorship-title publications-title" style="font-size: 1.25em; margin-bottom: 0.3em; color: var(--mentorship-title, #1743a7);">Mentorship</h3>
+            <hr class="mentorship-divider publications-divider" style="border: none; border-top: 1px solid var(--mentorship-border, #b6d2fa); margin: 0.2em 0 0.7em 0;">
+            <div class="mentorship-content publications-list">
+              <p class="mentorship-text publication-item-simple" style="color: var(--mentorship-text, #2563eb); font-size: 1.07em;">
+                I am grateful to be mentored by <a href="https://www.linkedin.com/in/nayyab/" target="_blank" rel="noopener noreferrer" style="color: var(--mentorship-link, #1743a7); text-decoration: underline;">Nayyab Naqvi, PhD MBCS (Principal Technologist for AI Enablement in the UK Public Sector)</a>.<br>
+                I am an active mentor with the <a href="https://womeninhpc.org/" target="_blank" rel="noopener noreferrer" style="color: var(--mentorship-link, #1743a7); text-decoration: underline;">Women in High Performance Computing (WHPC)</a> platform, supporting and empowering the next generation of talent in the HPC community.
               </p>
             </div>
           </div>
-
-          <div class="news-section">
-            <h3 class="news-title">Latest</h3>
-            <hr class="news-divider">
-            <div class="news-list">
+          <div id="latest" class="news-section">
+            <h3 class="news-title publications-title" style="font-size: 1.25em; margin-bottom: 0.3em; color: var(--text-primary);">Latest</h3>
+            <hr class="news-divider publications-divider" style="border: none; border-top: 1px solid #e5e7eb; margin: 0.2em 0 0.7em 0;">
+            <div class="news-list publications-list" style="width: 100%;">
               {% assign sorted_posts = site.posts | sort: 'date' | reverse %}
               {% for post in sorted_posts limit:10 %}
-                <a href="{{ post.url | relative_url }}" class="news-item">
+                <div class="publication-item-simple" style="display: flex; align-items: flex-start; width: 100%; min-height: 110px; border-bottom: 1px solid var(--border-color); padding: 1.2em 0; color: var(--text-secondary); font-size: 1.07em; background: var(--bg-primary);">
                   {% if post.image %}
-                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="news-item-image">
+                    <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width: 90px; height: 90px; object-fit: cover; border-radius: 8px; margin-right: 1.5em; background: var(--bg-tertiary); flex-shrink: 0;">
                   {% else %}
-                    <div class="news-item-image news-item-image-placeholder" aria-hidden="true"></div>
+                    <div style="width: 90px; height: 90px; background: var(--bg-tertiary); border-radius: 8px; margin-right: 1.5em; display: flex; align-items: center; justify-content: center; color: var(--text-tertiary); font-size: 2em; flex-shrink: 0;">📰</div>
                   {% endif %}
-                  <div class="news-item-content">
-                    <h4 class="news-item-title">{{ post.title }}</h4>
-                    <p class="news-item-excerpt">{{ post.excerpt | strip_html | truncatewords: 40 }}</p>
-                    <p class="news-item-date">{{ post.date | date: "%B %d, %Y" }}</p>
+                  <div style="flex: 1; min-width: 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                      <a href="{{ post.url | relative_url }}" class="publication-link-simple" style="font-weight: bold; font-size: 1.08em; text-decoration: none; color: var(--text-primary);">{{ post.title }}</a>
+                      <span style="color: var(--text-tertiary); font-size:0.97em; margin-left: 1em; white-space: nowrap;">{{ post.date | date: "%B %d, %Y" }}</span>
+                    </div>
+                    <div style="font-size:0.97em; color: var(--text-secondary); margin-top:0.3em;">
+                      {{ post.excerpt | strip_html | truncatewords: 40 }}
+                    </div>
                   </div>
-                </a>
+                </div>
               {% endfor %}
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrapper">
-      <p style="text-align: center; color: #6b7280; margin: 0;">© 2026 Roksana Mirzaei. All rights reserved.</p>
-    </div>
-  </footer>
-  
-  <script src="/assets/theme-toggle.js"></script>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+</div>
+<script src="/assets/theme-toggle.js"></script>
 </body>
-</html>

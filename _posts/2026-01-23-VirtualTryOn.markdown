@@ -2,9 +2,17 @@
 layout: post
 title:  "VirtualTryOn"
 date:   2026-01-23 21:15:40 +0000
-categories: 
-image: "/assets/images/VirtualTryOn/latent_diffiusion_model.png"
+categories: []
+image: /assets/images/VirtualTryOn/latent_diffiusion_model.png
 ---
+
+**Authors:** Roksana Mirzaei, Gbenga Ilesanmi, Jerson Rojas Ortega, Soujanya Joshi
+
+**Github:** [https://github.com/roksana-mirzaei/VirtualTryOnStyleStudio](https://github.com/roksana-mirzaei/VirtualTryOnStyleStudio)
+
+<div style="font-size: 1.07em; color: #2563eb; margin-bottom: 1.2em;">
+<strong>Note:</strong> This is a personal development collaboration research project with Roksana Mirzaei, Gbenga Ilesanmi, Jerson Rojas Ortega, Soujanya Joshi. The project is conducted outside of daily work, solely for learning and research purposes.
+</div>
 
 In 2025, virtual try-on became the next major trend in retail media. Many companies—including Google, H&M, and Zara—developed or integrated their own virtual try-on solutions to improve customer shopping experiences, drive sales, and reduce returns. Ray-Ban lets you virtually try on glasses using your webcam's live feed, while L'Oréal helps you experiment with makeup and hair color through live webcam feeds or uploaded images. Hugo Boss created a 3D avatar so you can see how their garments would look on you. As you can see, there's been lots of exciting progress in this space!
 
