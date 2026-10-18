@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/intro.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/theme.css' | relative_url }}">
+    <style>
+        .post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .post-content.wide {
+            max-width: 1500px;
+        }
+        .post-header {
+            margin-bottom: 2rem;
+        }
+        .post-header h1 {
+            margin: 0 0 0.5rem 0;
+            color: var(--text-primary);
+        }
+        .post-meta {
+            color: var(--text-tertiary);
+            font-size: 0.95rem;
+        }
+        .post-meta a {
+            color: var(--accent-color);
+        }
+        article {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        #remote-content table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1.2rem 0;
+            font-size: 0.95em;
+            display: block;
+            overflow-x: auto;
+        }
+        #remote-content th,
+        #remote-content td {
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        #remote-content th {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+        #remote-content pre {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        #remote-content code {
+            font-size: 0.92em;
+        }
+        #remote-content img {
+            max-width: 100%;
+        }
+        #remote-content .math-display {
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        #remote-frame {
+            width: 100%;
+            height: calc(100vh - 120px);
+            min-height: 600px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: var(--bg-primary);
+        }
+        .remote-status {
+            color: var(--text-tertiary);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    {% include header.html %}
+
+    <main class="post-content{% if page.wide %} wide{% endif %}">
+        <article>
+            <header class="post-header">
+                <h1>{{ page.title }}</h1>
+                <p class="post-meta">
+                    {{ page.date | date: "%B %d, %Y" }}
+                    {% if page.source_page %} · <a href="{{ page.source_page }}" target="_blank" rel="noopener">View source on GitHub</a>{% endif %}
+                </p>
+            </header>
+
+            {{ content }}
+
+            {% if page.source_type == 'html' %}
+                <iframe id="remote-frame" title="{{ page.title }}"></iframe>
+            {% else %}
+                <div id="remote-content"><p class="remote-status">Loading…</p></div>
+            {% endif %}
+        </article>
+    </main>
+
+    <script src="{{ '/assets/theme-toggle.js' | relative_url }}"></script>
+    {% if page.source_type == 'html' %}
+    <script>
+    // Fetch the HTML page from GitHub and render it in an iframe, keeping its theme in sync with the site's.
+    (function() {
+        const src = {{ page.source | jsonify }};
+        const frame = document.getElementById('remote-frame');
+        const html = document.documentElement;
+
+        function syncTheme() {
+            const doc = frame.contentDocument;
+            if (doc && doc.documentElement) {
+                doc.documentElement.setAttribute('data-theme', html.getAttribute('data-theme') || 'light');
+            }
+        }
+
+        frame.addEventListener('load', syncTheme);
+        new MutationObserver(syncTheme).observe(html, { attributes: true, attributeFilter: ['data-theme'] });
+
+        fetch(src, { cache: 'no-cache' })
+            .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+            .then(text => { frame.srcdoc = text; })
+            .catch(() => {
+                frame.replaceWith(Object.assign(document.createElement('p'), {
+                    className: 'remote-status',
+                    textContent: 'Could not load this page. Please use the GitHub link above.'
+                }));
+            });
+    })();
+    </script>
+    {% else %}
+    <script>
+    window.MathJax = {
+        tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+        svg: { fontCache: 'global' },
+        startup: { typeset: false }
+    };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+    <script>
+    // Fetch the Markdown file from GitHub, render it with marked, then typeset $...$ / $$...$$ math with MathJax.
+    (function() {
+        const src = {{ page.source | jsonify }};
+        const sourcePage = {{ page.source_page | jsonify }};
+        const target = document.getElementById('remote-content');
+
+        const escapeHtml = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+        marked.use({
+            extensions: [
+                {
+                    name: 'blockMath',
+                    level: 'block',
+                    start(s) { const i = s.indexOf('$$'); return i < 0 ? undefined : i; },
+                    tokenizer(s) {
+                        const m = /^\$\$([\s\S]+?)\$\$[^\S\n]*(?:\n|$)/.exec(s);
+                        if (m) return { type: 'blockMath', raw: m[0], text: m[1] };
+                    },
+                    renderer(t) { return '<div class="math-display">\\[' + escapeHtml(t.text) + '\\]</div>'; }
+                },
+                {
+                    name: 'inlineMath',
+                    level: 'inline',
+                    start(s) { const i = s.indexOf('$'); return i < 0 ? undefined : i; },
+                    tokenizer(s) {
+                        let m = /^\$\$([\s\S]+?)\$\$/.exec(s);
+                        if (m) return { type: 'inlineMath', raw: m[0], text: m[1], display: true };
+                        m = /^\$((?:\\.|[^\\$\n])+?)\$/.exec(s);
+                        if (m) return { type: 'inlineMath', raw: m[0], text: m[1], display: false };
+                    },
+                    renderer(t) {
+                        const tex = escapeHtml(t.text);
+                        return t.display ? '\\[' + tex + '\\]' : '\\(' + tex + '\\)';
+                    }
+                }
+            ]
+        });
+
+        fetch(src, { cache: 'no-cache' })
+            .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+            .then(md => {
+                // The page header already shows the title, so drop the file's leading H1.
+                md = md.replace(/^\s*#\s+[^\n]*\n/, '');
+                target.innerHTML = marked.parse(md);
+
+                // Point relative links and images back at the GitHub repo.
+                const rawBase = src.slice(0, src.lastIndexOf('/') + 1);
+                const pageBase = sourcePage ? sourcePage.slice(0, sourcePage.lastIndexOf('/') + 1) : rawBase;
+                const isRelative = u => u && !/^([a-z]+:|#|\/\/)/i.test(u);
+                target.querySelectorAll('img[src]').forEach(img => {
+                    const u = img.getAttribute('src');
+                    if (isRelative(u)) img.src = new URL(u, rawBase).href;
+                });
+                target.querySelectorAll('a[href]').forEach(a => {
+                    const u = a.getAttribute('href');
+                    if (isRelative(u)) a.href = new URL(u, pageBase).href;
+                    if (!u.startsWith('#')) { a.target = '_blank'; a.rel = 'noopener'; }
+                });
+
+                return MathJax.startup.promise.then(() => MathJax.typesetPromise([target]));
+            })
+            .catch(() => {
+                target.innerHTML = '<p class="remote-status">Could not load this page. Please use the GitHub link above.</p>';
+            });
+    })();
+    </script>
+    {% endif %}
+</body>
+</html>
